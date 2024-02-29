@@ -8,7 +8,7 @@ interface BoardContext {
     }
 }
 
-export async function PUT(req: Request, {params}: BoardContext) {
+export async function PATCH(req: Request, {params}: BoardContext) {
     const {id} = params;
     const bodyRaw = await req.json();
     const validateBody = createBoardDto.safeParse(bodyRaw);
