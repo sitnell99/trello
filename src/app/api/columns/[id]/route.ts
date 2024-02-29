@@ -8,7 +8,7 @@ interface ColumnContext {
     }
 }
 
-export async function PUT(req: Request, {params}: ColumnContext) {
+export async function PATCH(req: Request, {params}: ColumnContext) {
     const {id} = params;
     const bodyRaw = await req.json();
     const validateBody = updateColumnDto.safeParse(bodyRaw);

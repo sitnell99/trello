@@ -8,7 +8,7 @@ interface CardContext {
     }
 }
 
-export async function PUT(req: Request, {params}: CardContext) {
+export async function PATCH(req: Request, {params}: CardContext) {
     const {id} = params;
     const bodyRaw = await req.json();
     const validateBody = updateCardDto.safeParse(bodyRaw);
