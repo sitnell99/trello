@@ -7,11 +7,13 @@ export async function GET(req: Request) {
     const boardId = searchParams.get('boardId');
 
     if (!boardId) {
-        return NextResponse.json({
-            code: 'missing_query_param',
-            field: 'boardId',
-            message: 'Query param boardId is required'
-        })
+        return NextResponse.json([
+            {
+                code: 'missing_query_param',
+                field: 'boardId',
+                message: 'Query param boardId is required'
+            }
+        ], {status: 400})
     }
 
     const columns = await prisma.columns.findMany({
